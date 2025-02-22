@@ -6,18 +6,6 @@ const nextConfig = {
   output,
   basePath,
   productionBrowserSourceMaps: true,
-  reactStrictMode: true,
-  experimental: {
-    appDir: true,
-  },
-  images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "weather-tw.vercel.app",
-      },
-    ],
-  },
 };
 
 module.exports = nextConfig;
