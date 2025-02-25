@@ -1,43 +1,33 @@
 {
-  "name": "weathe-tw",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "start": "next dev",
-    "dev": "cross-env INIT_CWD=$PWD next dev",
-    "build": "cross-env INIT_CWD=$PWD next build ",
-    "serve": "next start",
-    "analyze": "cross-env ANALYZE=true next build",
-    "lint": "next lint --fix --dir pages --dir app --dir components --dir lib --dir layouts --dir scripts",
-    "prepare": "husky"
-  },
-  "dependencies": {
-    "@liveblocks/client": "^1.0.2",
-    "@liveblocks/node": "^1.0.2",
-    "@liveblocks/react": "^1.0.2",
-    "@radix-ui/react-tooltip": "^1.0.5",
-    "@types/node": "18.15.11",
-    "@types/react": "18.0.33",
-    "@types/react-dom": "18.0.11",
-    "@vercel/blob": "^0.8.1",
-    "clsx": "^1.2.1",
-    "cross-env": "^7.0.3",
-    "husky": "^9.1.7",
-    "nanoid": "^4.0.2",
-    "next": "13.4.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "5.0.4"
-  },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.57.1",
-    "@typescript-eslint/parser": "^5.57.1",
-    "autoprefixer": "^10.4.14",
-    "eslint": "^8.38.0",
-    "eslint-config-next": "^13.3.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "postcss": "^8.4.23",
-    "tailwindcss": "^3.3.1"
-  }
+	"name": "docs",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"build": "next build",
+		"dev": "next dev",
+		"start": "next start",
+		"postinstall": "fumadocs-mdx"
+	},
+	"dependencies": {
+		"fumadocs-core": "15.0.6",
+		"fumadocs-mdx": "11.5.3",
+		"fumadocs-ui": "15.0.6",
+		"next": "15.1.6",
+		"prism-react-renderer": "^2.4.1",
+		"react": "^19.0.0",
+		"react-dom": "^19.0.0",
+		"react-install-command": "^1.1.2",
+		"use-fs": "^0.0.12"
+	},
+	"devDependencies": {
+		"@iconify/react": "^5.2.0",
+		"@tailwindcss/postcss": "^4.0.5",
+		"@types/mdx": "^2.0.13",
+		"@types/node": "22.13.1",
+		"@types/react": "^19.0.8",
+		"@types/react-dom": "^19.0.3",
+		"postcss": "^8.5.1",
+		"tailwindcss": "^4.0.5",
+		"typescript": "^5.7.3"
+	}
 }
