@@ -3,12 +3,13 @@
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
-		"build": "next build",
-		"dev": "next dev",
+		"dev": "cross-env INIT_CWD=$PWD next dev",
+		"build": "cross-env INIT_CWD=$PWD next build ",
 		"start": "next start",
 		"postinstall": "fumadocs-mdx"
 	},
 	"dependencies": {
+		"cross-env": "^7.0.3",
 		"fumadocs-core": "15.0.6",
 		"fumadocs-mdx": "11.5.3",
 		"fumadocs-ui": "15.0.6",
@@ -26,6 +27,7 @@
 		"@types/node": "22.13.1",
 		"@types/react": "^19.0.8",
 		"@types/react-dom": "^19.0.3",
+		"eslint": "^9.21.0",
 		"postcss": "^8.5.1",
 		"tailwindcss": "^4.0.5",
 		"typescript": "^5.7.3"
