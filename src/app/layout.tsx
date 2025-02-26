@@ -24,7 +24,7 @@ export default function Layout({ children }: { children: ReactNode }) {
                 rel="icon"
                 type="image/svg"
                 sizes="32x32"
-                href={`/favicons/android.svg`}
+                href={`/android.svg`}
             />
 
 			<body className="flex min-h-screen flex-col">
