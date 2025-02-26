@@ -208,168 +208,6 @@ const App = () => {
 	return (
 		<main className="container mx-auto py-8 font-mono sm:py-10">
 			<div className="space-y-8">
-				{/* Header Section */}
-				<header className="space-y-8 border-zinc-200 border-b pb-8 dark:border-zinc-800">
-					<div className="grid grid-cols-1 gap-8 text-left md:grid-cols-2">
-						<div className="rounded-lg border border-zinc-200 bg-white p-6 pt-2 shadow-sm dark:border-zinc-800 dark:bg-zinc-900">
-							<div className="flex h-full flex-col">
-								<div className="flex-1">
-									<p className="mt-4 text-left text-xl text-zinc-600 dark:text-zinc-400">
-										A React hook for integrating with the{" "}
-										<a
-											href="https://developer.mozilla.org/en-US/docs/Web/API/File_System_Access_API"
-											className="text-emerald-500 dark:text-emerald-400"
-										>
-											File System Access API
-										</a>
-										.{" "}
-									</p>
-									<p className="mt-2 text-sm text-zinc-400 dark:text-zinc-600">
-										Supported on Desktop in Chrome, Edge and Opera.
-									</p>
-									<div className="mt-2 sm:mt-4">
-										<InstallCommand
-											packageName="use-fs"
-											slotClassNames={{
-												root: "!rounded-lg !border !border-zinc-200 dark:!border-zinc-800 !bg-white dark:!bg-zinc-800/50 !overflow-hidden",
-												navigation:
-													"!bg-zinc-200/75 dark:!bg-zinc-800 !border-b !border-zinc-200 dark:!border-zinc-800 !p-1 sm:!p-2 !px-0 !flex !flex-row !flex-wrap !items-center !min-h-fit",
-												tab: "!px-2 sm:!px-3 !py-1 sm:!py-1.5 !text-xs sm:!text-sm !rounded-md !text-zinc-600 hover:!text-zinc-800 dark:!text-zinc-400 dark:hover:!text-zinc-400 data-[selected=true]:!bg-white dark:data-[selected=true]:!bg-zinc-800/50 data-[selected=true]:!text-zinc-900 dark:data-[selected=true]:!text-zinc-400 !whitespace-nowrap !-mb-2",
-												tabIcon: "!w-4 !h-4 !mr-1.5",
-												tabText: "!text-zinc-600 dark:!text-zinc-400",
-												commandContainer:
-													"!bg-zinc-100 dark:!bg-zinc-900 !border !border-zinc-200 dark:!border-zinc-800 !p-2 sm:!p-3 !flex !flex-wrap !items-center !gap-1 sm:!gap-2",
-												commandGroup: "!flex !items-center !gap-1",
-												commandPrefix:
-													"!text-zinc-500 !shrink-0 !text-xs sm:!text-sm !dark:text-zinc-500 !mr-2",
-												commandText:
-													"!text-zinc-500 !shrink-0 !text-sm sm:!text-sm !dark:text-zinc-500 !mr-2",
-
-												copyButton:
-													"!ml-auto !p-1 sm:!p-1.5 !rounded-md hover:!bg-zinc-100 dark:hover:!bg-zinc-800/50 !text-zinc-600 hover:!text-zinc-800 dark:!text-zinc-400 dark:hover:!text-zinc-400 !shrink-0",
-												copyButtonIcon: "!w-4 !h-4",
-												tabIndicator: "!bg-zinc-900 dark:!bg-zinc-100 ",
-												commandTextCommand:
-													"!text-zinc-500 !shrink-0 !text-xs sm:!text-sm !dark:text-zinc-500 !mr-2",
-											}}
-										/>
-									</div>
-									<p className="mt-2 text-left text-base text-zinc-600 sm:mt-4 sm:text-lg dark:text-zinc-400">
-										The File System Access API enables web applications to
-										seamlessly work with files on a user's local system.
-									</p>
-									<p className="mt-4 text-left text-lg text-zinc-600 dark:text-zinc-400">
-										Build web-apps that can read, write, and manage files
-										directly - eliminating the need for repeated file selection
-										dialogs. This capability is ideal for creating powerful
-										browser-based tools.
-									</p>
-									<p className="mt-4 text-left text-lg text-zinc-600 dark:text-zinc-400">
-										Unlike a traditional file selection dialog, the user will be
-										prompted to give the web-browser permission to access a
-										specific directory. Once permission is granted the hook will
-										watch the files in that directory for updates, triggering a
-										re-render whenever a file is added, changed or deleted.
-									</p>
-								</div>
-								<button
-									type="button"
-									onClick={() => {
-										window.scrollTo({
-											top: window.innerHeight,
-											behavior: "smooth",
-										});
-									}}
-									className="mt-8 w-full rounded-lg border border-zinc-800 bg-zinc-900 px-4 py-2 text-sm text-zinc-100 transition-colors hover:bg-zinc-800 dark:border-zinc-700 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700"
-								>
-									<span className="mr-2 font-bold text-zinc-100 dark:text-zinc-100">
-										↓
-									</span>
-									Check out the demo
-									<span className="ml-2 font-bold text-zinc-100 dark:text-zinc-100">
-										↓
-									</span>
-								</button>
-							</div>
-						</div>
-
-						{/* Code Example */}
-						<div className="rounded-xl border border-zinc-200 bg-white dark:border-zinc-800 dark:bg-zinc-900">
-							<div className="border-zinc-200 border-b px-4 py-3 dark:border-zinc-800">
-								<div className="flex items-center gap-2">
-									<div className="h-3 w-3 rounded-full bg-red-500" />
-									<div className="h-3 w-3 rounded-full bg-yellow-500" />
-									<div className="h-3 w-3 rounded-full bg-green-500" />
-								</div>
-							</div>
-							<div className="overflow-x-auto text-left">
-								<Highlight
-									theme={themes.oneDark}
-									code={`import { useFs } from 'use-fs';
-
-function App() {
-  const { 
-    onDirectorySelection, 
-    files,
-    isBrowserSupported 
-  } = useFs({
-    onFilesAdded: (newFiles, previousFiles) => {
-      console.log('Files added:', newFiles);
-    },
-    onFilesChanged: (changedFiles, previousFiles) => {
-      console.log('Files changed:', changedFiles);
-    },
-    onFilesDeleted: (deletedFiles, previousFiles) => {
-      console.log('Files deleted:', deletedFiles);
-    },
-  });
-
-  if (!isBrowserSupported) {
-    return <div>Browser not supported</div>;
-  }
-
-  return (
-    <div>
-      <button onClick={onDirectorySelection}>
-        Select Directory
-      </button>
-	  {files.size > 0 && (
-		<div>
-			{Array.from(files.keys()).map((path) => (
-				<div key={path}>{path}</div>
-			))}
-		</div>
-	  )}
-    </div>
-  );
-}`}
-									language="tsx"
-								>
-									{({
-										className,
-										style,
-										tokens,
-										getLineProps,
-										getTokenProps,
-									}) => (
-										<pre className={`${className} p-4 text-sm`} style={style}>
-											{tokens.map((line, i) => (
-												// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-												<div key={i} {...getLineProps({ line })}>
-													{line.map((token, key) => (
-														// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
-														<span key={key} {...getTokenProps({ token })} />
-													))}
-												</div>
-											))}
-										</pre>
-									)}
-								</Highlight>
-							</div>
-						</div>
-					</div>
-				</header>
-
 				{/* Main Content */}
 				<div className="grid gap-6 lg:grid-cols-2">
 					{/* Left Panel: File Browser */}
@@ -664,12 +502,12 @@ function App() {
 				<div className="pt-5 text-center text-sm text-zinc-400">
 					Built by{" "}
 					<a
-						href="https://linesofcode.dev"
+						href="https://hiltonblog.vercel.app"
 						target="_blank"
 						rel="noopener noreferrer"
 						className="text-emerald-400 transition-colors hover:text-emerald-300"
 					>
-						linesofcode.dev
+						Hilton Chiang
 					</a>
 				</div>
 			</div>

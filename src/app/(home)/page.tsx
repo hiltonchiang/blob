@@ -14,9 +14,16 @@ export async function generateMetadata(props: {
 
 	return metadataImage.withImage(page.slugs, {
 		title:
-			"use-fs • a React hook for integrating with the File System Access API.",
+			"Hilton's Converter",
 		description:
-			"A React hook for integrating with the File System Access API.",
+			"Use File System Access API. to convert local files",
+        openGraph: {
+        	title: "Hilton's Converter",
+		    description: "Use File System Access API. to convert local files",
+            images:['/android.svg'],
+            locale: 'en_US',
+    
+        },
 	});
 }
 

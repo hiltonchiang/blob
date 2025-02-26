@@ -20,6 +20,13 @@ export default function Layout({ children }: { children: ReactNode }) {
 					data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
 				/>
 			)}
+            <link
+                rel="icon"
+                type="image/svg"
+                sizes="32x32"
+                href={`/favicons/android.svg`}
+            />
+
 			<body className="flex min-h-screen flex-col">
 				<RootProvider
 					search={{

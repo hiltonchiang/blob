@@ -3,9 +3,9 @@ import { generateOGImage } from "fumadocs-ui/og";
 
 export const GET = metadataImage.createAPI((_page) => {
 	return generateOGImage({
-		title: "use-fs",
+		title: "file-conv",
 		description: "A React hook for integrating with the File System Access API",
-		site: "use-fs",
+		site: "file-conv",
 	});
 });
 
